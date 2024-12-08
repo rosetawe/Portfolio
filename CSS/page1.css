@@ -20,7 +20,6 @@ body {
   margin-left: -5rem;
 }
   
-  /* Glass Box mit Glasmorphism */
 .glass-box {
   width: 350px;
   height: 750px;
@@ -38,13 +37,12 @@ body {
   margin-left: 15rem;
 }
   
-  /* Abstrakte Buttons mit Neumorphism */
 .abstract-button {
   width: 220px;
   height: 80px;
-  background-color: var(--black-matte); /* Button-Farbe jetzt beige wie der Hintergrund */
+  background-color: var(--black-matte);
   border-radius: 20px;
-  color: var(--beige); /* Textfarbe bleibt dunkel */
+  color: var(--beige);
   font-size: 1.6rem;
   font-weight: bold;
   display: flex;
@@ -70,7 +68,6 @@ body {
   color: var(--beige);
 }
   
-  /* Rotierender Kreis-Container mit Neumorphism und Fusion der Kreise */
 .circle-container {
   position: absolute;
   top: 2rem;
@@ -96,17 +93,16 @@ body {
 }
   
 .circle-container:hover .circle {
-  transform: scale(2.5); /* Kreise werden etwas größer */
+  transform: scale(2.5);
 }
   
 .circle-container.clicked .circle {
   width: 60px;
   height: 60px;
   opacity: 1;
-  transform: scale(1) translate(0); /* Fusioniere die 6 Kreise zu einem großen */
+  transform: scale(1) translate(0);
 }
   
-  /* Positionierung der 6 Kreise im rotierenden Container */
 .circle:nth-child(1) { transform: rotate(0deg) translate(30px); }
 .circle:nth-child(2) { transform: rotate(60deg) translate(30px); }
 .circle:nth-child(3) { transform: rotate(120deg) translate(30px); }
@@ -119,7 +115,6 @@ body {
   100% { transform: rotate(360deg); }
 }
   
-  /* Dot Menü mit Neumorphism */
 .dot-menu {
   position: absolute;
   top: 50%;
@@ -164,73 +159,71 @@ h1 {
 .slide-in-box {
   position: fixed;
   top: 0;
-  left: -100%; /* Ausblenden außerhalb des Bildschirms */
+  left: -100%;
   width: 600px;
   height: 100vh;
-  background-color: var(--gold-matte); /* Schwarze Box */
-  color: var(--black-matte); /* Weiße Textfarbe */
+  background-color: var(--gold-matte);
+  color: var(--black-matte);
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  transition: left 0.5s ease; /* Übergangseffekt beim Einblenden */
+  transition: left 0.5s ease;
   display: flex;
   flex-direction: column;
   padding: 20px;
 }
 
-/* Container für den Text (innerhalb der Box) */
 .slide-in-content {
   font-size: 1.2rem;
   font-weight: bold;
-  line-height: 1.5; /* Zeilenabstand erhöhen für bessere Lesbarkeit */
-  margin-top: 20px; /* Weniger Abstand nach oben */
-  text-align: left; /* Text links ausrichten */
+  line-height: 1.5;
+  margin-top: 20px;
+  text-align: left;
   letter-spacing: 1.2px;
-  overflow-y: auto; /* Vertikales Scrollen aktivieren */
-  overflow-x: hidden; /* Horizontales Scrollen deaktivieren */
-  max-height: calc(100vh - 60px); /* Höhe der Box minus Header und Buttons */
-  padding-right: 10px; /* Platz für Scrollbar */
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 60px);
+  padding-right: 10px;
 }
 
-/* Scrollbar-Styling für den vertikalen Scrollbereich */
 .slide-in-content::-webkit-scrollbar {
-  width: 12px; /* Breite der Scrollbar */
-  background: var(--black-matte); /* Hintergrundfarbe der Scrollbar */
+  width: 12px;
+  background: var(--black-matte);
   border-radius: 5px;
 }
 
 .slide-in-content::-webkit-scrollbar-thumb {
-  background: var(--gold-matte); /* Farbe des Scrollbars */
-  border-radius: 5px; /* Runde Ecken */
+  background: var(--gold-matte);
+  border-radius: 5px;
   box-shadow: 
     inset 4px 4px 8px rgba(0, 0, 0, 0.2),
-    inset -4px -4px 8px rgba(188, 174, 128, 0.689); /* Neumorphismus-Effekt */
+    inset -4px -4px 8px rgba(188, 174, 128, 0.689);
   cursor: pointer;
 }
 
 .slide-in-content::-webkit-scrollbar-track {
-  background: none; /* Entfernt Hintergrund des Scrollbar-Tracks */
-  margin: 0 10px; /* Abstand zur Scrollbar */
+  background: none;
+  margin: 0 10px;
 }
 
 .slide-in-content:hover::-webkit-scrollbar-thumb {
-  background: var(--gold-matte); /* Beibehaltung der Farbe beim Hover */
+  background: var(--gold-matte);
   box-shadow: 
     inset 5px 5px 10px rgba(0, 0, 0, 0.3),
-    inset -5px -5px 10px rgba(188, 174, 128, 0.689); /* Stärkere Schatteneffekte */
-  transform: scale(1.1); /* Vergrößerung bei Hover */
+    inset -5px -5px 10px rgba(188, 174, 128, 0.689);
+  transform: scale(1.1);
 }
 
 h2 {
-  font-size: 1.8rem; /* Größere Schrift für die Überschrift */
-  margin-bottom: 15px; /* Abstand nach unten */
+  font-size: 1.8rem;
+  margin-bottom: 15px;
   color: var(--beige-matte);
   font-weight: bold;
 }
 
 h3 {
-  font-size: 1.4rem; /* Etwas größere Schrift für kleinere Überschriften */
-  margin-top: 20px; /* Abstand nach oben */
-  margin-bottom: 10px; /* Abstand nach unten */
+  font-size: 1.4rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
   color: var(--beige-matte);
   font-weight: bold;
 }
@@ -240,21 +233,19 @@ strong {
 }
 
 ul li {
-  margin-bottom: 10px; /* Abstand zwischen den Listenelementen */
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
-/* Styling für Links */
 a {
-  color: var(--black-matte); /* Linkfarbe */
+  color: var(--black-matte);
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline; /* Unterstreicht den Link beim Hover */
+  text-decoration: underline;
 }
 
-/* Schließen-Button */
 .close-button {
   position: absolute;
   top: 10px;
@@ -279,7 +270,7 @@ a:hover {
   height: auto;
   overflow: hidden;
   margin-right: 160px;
-  border-width: 10px; /* Breite des Rahmens */
+  border-width: 10px;
   border-style: solid;
   border-image: linear-gradient(to bottom, var(--black-matte), var(--gold-matte)) 1;
 }
@@ -292,9 +283,9 @@ a:hover {
 }
 
 .WhoIam {
-  width: 80%; /* Dynamische Breite für bessere Flexibilität */
-  max-width: 200px; /* Begrenzte maximale Breite */
-  text-align: center; /* Textzentrierung */
+  width: 80%;
+  max-width: 200px;
+  text-align: center;
   background-color: var(--gold-matte);
   color: var(--black-matte);
   font-weight: bold;
@@ -308,7 +299,7 @@ a:hover {
   .glass-box {
     width: 90%; 
     height: auto;
-    margin-left: 0; /* Keine zusätzliche Verschiebung */
+    margin-left: 0;
   }
 
   .abstract-button {
@@ -327,11 +318,11 @@ a:hover {
   }
 
   .slide-in-box {
-    width: 100%; /* Box nimmt die volle Breite des Bildschirms ein */
+    width: 100%;
   }
 
   .MyFoto {
-    width: 120px; /* Bildgröße auf kleineren Bildschirmen anpassen */
+    width: 120px;
     margin-right: 0;
   }
 
@@ -346,11 +337,10 @@ a:hover {
   }
 
   h1 {
-    font-size: 5rem; /* Schriftgröße anpassen */
+    font-size: 5rem;
   }
 }
 
-/* Für sehr kleine Bildschirme */
 @media (max-width: 480px) {
   .glass-box {
     width: 95%;
@@ -371,10 +361,10 @@ a:hover {
   }
 
   h1 {
-    font-size: 3.5rem; /* Schriftgröße für kleine Geräte */
+    font-size: 3.5rem;
   }
 
   .MyFoto {
-    width: 100px; /* Noch kleineres Bild */
+    width: 100px;
   }
 }
