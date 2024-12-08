@@ -1,14 +1,18 @@
 const dots = document.querySelectorAll(".dot");
-const backgroundImages = [
-  "url('Images&Videos/Selbstgemachte/hb3.png')",
-  "url('Images&Videos/Selbstgemachte/OhShitKlein.mp4')",
-  "url('Images&Videos/Schulprojekte/DogRunner.mp4')"
+const videos = [
+  "Images&Videos/Selbstgemachte/OhShitKlein.mp4",
+  "Images&Videos/Schulprojekte/HobbitVideoKlein.mp4",
+  "Images&Videos/Schulprojekte/JourneyOfTheIceBoundKlein.mp4"
 ];
 
 function changeBackground(index) {
-  document.body.style.backgroundImage = backgroundImages[index];
-  document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundPosition = "center";
+  const videoElement = document.getElementById("background-video");
+  const videoSource = document.getElementById("video-source");
+
+  videoSource.setAttribute("src", videos[index]);
+
+  videoElement.load();
+  videoElement.play();
 
   dots.forEach(dot => dot.style.backgroundColor = 'var(--black-matte)');
   dots[index].style.backgroundColor = 'var(--gold-matte)';
