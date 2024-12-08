@@ -1,8 +1,8 @@
 const dots = document.querySelectorAll(".dot");
 const backgroundImages = [
-  "url('background1.jpg')",
-  "url('background2.jpg')",
-  "url('background3.jpg')"
+  "url('Images&Videos/Selbstgemachte/hb3.png')",
+  "url('Images&Videos/Selbstgemachte/OhShitKlein.mp4')",
+  "url('Images&Videos/Schulprojekte/DogRunner.mp4')"
 ];
 
 function changeBackground(index) {
