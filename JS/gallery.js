@@ -296,7 +296,7 @@ const data = {
     },
     { 
       type: "video", 
-      src: "Images&Videos/Schulprojekte/HobbitVideo.mp4", 
+      src: "Images&Videos/Schulprojekte/HobbitVideoKlein.mp4", 
       description: {
         de: "Allein gemachtes Projekt. Hier war das Thema etwas Fantasie, und ich entschied mich, das Hobbit-Haus und den Ring zu machen.",
         es: "Proyecto hecho solo. El tema era fantasía y decidí hacer la casa y el anillo del Hobbit.",
@@ -306,7 +306,7 @@ const data = {
     },
     { 
       type: "video", 
-      src: "Images&Videos/Schulprojekte/JourneyOfTheIcebound.mp4", 
+      src: "Images&Videos/Schulprojekte/JourneyOfTheIceBoundKlein.mp4", 
       description: {
         de: "Gruppenprojekt mit zwei anderen Mitschülern. Es war ein freies Projekt, und wir machten ein Jump&Run-Spiel mit einer Geschichte, bei dem man einen Gefangenen retten muss und dazu den Eisdrache bekämpfen muss.",
         es: "Proyecto en grupo con dos compañeros. Era un proyecto libre, y creamos un juego de saltar y correr con una historia en la que debes salvar a un prisionero y luchar contra un dragón de hielo.",
@@ -336,7 +336,7 @@ const data = {
     },
     { 
       type: "video", 
-      src: "Images&Videos/Schulprojekte/MMORPG API.mp4", 
+      src: "Images&Videos/Schulprojekte/MMORPG APIklein.mp4", 
       description: {
         de: "Allein gemachtes Projekt, bei dem man Items oder Benutzer in einem Spiel entfernen, aktualisieren oder anzeigen kann.",
         es: "Proyecto hecho solo, donde puedes eliminar, actualizar o mostrar artículos o usuarios en un juego.",
@@ -378,7 +378,7 @@ const data = {
     },
     { 
       type: "video", 
-      src: "Images&Videos/Selbstgemachte/OhShit-Version2.mp4", 
+      src: "Images&Videos/Selbstgemachte/OhShitKlein.mp4", 
       description: {
         de: "Audio Visualizer mit Blender gemacht für mein damaliges Lieblingslied.",
         es: "Visualizador de audio hecho con Blender para mi canción favorita de ese entonces.",
