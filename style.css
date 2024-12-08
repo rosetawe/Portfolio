@@ -1,0 +1,180 @@
+:root {
+  --green-dark: #283618;
+  --green-light: #606C38;
+  --beige: #FEFAE0;
+  --gold-matte: #e7b569f7;
+  --green-matte: #687357;
+  --green-metal: #3A5A40;
+  --black-matte: #1a1a1a;
+  --beige-matte: #6a6446;
+}
+
+@font-face {
+  font-family: 'Chayx';
+  src: url('fonts/Chayx.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Chayx', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Übergangseffekte für den Body (transition-out) */
+body.transition-out {
+  opacity: 0;
+  transform: scale(0.95);  /* Leichtes Verkleinern für einen sanften Rückzugseffekt */
+  filter: blur(8px);       /* Größerer Blur für mehr Tiefe */
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out, filter 1.5s ease-out; /* Langsame Übergänge */
+}
+
+/* Übergangseffekte für den Body (transition-in mit subtileren Übergängen) */
+body.transition-in {
+  opacity: 1;                   /* Vollständige Sichtbarkeit der Seite */
+  transform: scale(1);           /* Skalierung auf Originalgröße */
+  filter: blur(0);               /* Kein Blur mehr, die Seite ist nun scharf */
+  transition: opacity 1.5s ease, transform 1.5s ease-in-out, filter 1.5s ease-out; /* Sanftere Übergänge */
+}
+
+.language-selector {
+  position: fixed;
+  top: 30px;
+  left: 20px;
+  z-index: 100;
+}
+
+#languageButton {
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Chayx', Arial, sans-serif;
+  letter-spacing: 1px;
+  width: 200px;
+  cursor: pointer;
+  border: none;
+  background-color: var(--black-matte);
+  color: var(--beige);
+  border-radius: 10px;
+  
+  /* Neumorphism Effekte */
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#languageButton:hover {
+  background-color: var(--beige);
+  color: var(--black-matte);
+  box-shadow: 12px 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+#languageButton:active {
+  /* Schatten für gedrückten Zustand */
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+              inset -2px -2px 5px rgba(255, 255, 255, 0.3);
+  color: var(--beige);
+  background-color: var(--beige);
+}
+
+#languageDropdown {
+  display: none; /* Standardmäßig unsichtbar */
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: none;
+  border-radius: 10px;
+  opacity: 0; /* Anfangs unsichtbar */
+  transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
+}
+
+#languageDropdown.show {
+  display: block; /* Sichtbar machen */
+  opacity: 1; /* Voll sichtbar */
+}
+
+#languageDropdown.hide {
+  opacity: 0; /* Unsichtbar machen */
+}
+
+#languageDropdown button {
+  width: 200px;
+  padding: 10px;
+  background-color: var(--black-matte);
+  color: var(--beige);
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Chayx', Arial, sans-serif;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+
+#languageDropdown button:hover {
+  background-color: var(--beige);
+  color: var(--black-matte);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#languageDropdown button:active {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.3);
+  color: var(--beige);
+}
+
+@media (max-width: 1024px) {
+  /* Adjust for tablets and smaller screens */
+  .language-selector {
+    top: 20px;
+    left: 10px; /* Adjust the left positioning */
+  }
+
+  #languageButton {
+    font-size: 1.2rem; /* Smaller font size */
+    width: 150px;
+  }
+
+  #languageDropdown button {
+    width: 150px; /* Adjust dropdown width */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust for mobile screens */
+  body {
+    padding: 10px; /* Add some padding */
+  }
+
+  .language-selector {
+    top: 10px;
+    left: 5%;
+  }
+
+  #languageButton {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  #languageDropdown button {
+    width: 100%;
+  }
+}
+
+/* Smallest Screens (Mobile Portrait) */
+@media (max-width: 480px) {
+  .language-selector {
+    top: 5px;
+    left: 0;
+  }
+
+  #languageButton {
+    font-size: 0.875rem;
+    width: 100%;
+  }
+
+  #languageDropdown button {
+    width: 100%;
+  }
+}

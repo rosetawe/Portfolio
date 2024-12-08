@@ -1,0 +1,380 @@
+body {
+  background-color: var(--beige);
+  color: var(--black-matte);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-left: -5rem;
+}
+  
+  /* Glass Box mit Glasmorphism */
+.glass-box {
+  width: 350px;
+  height: 750px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 15rem;
+}
+  
+  /* Abstrakte Buttons mit Neumorphism */
+.abstract-button {
+  width: 220px;
+  height: 80px;
+  background-color: var(--black-matte); /* Button-Farbe jetzt beige wie der Hintergrund */
+  border-radius: 20px;
+  color: var(--beige); /* Textfarbe bleibt dunkel */
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2), -8px -8px 15px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  margin-left: -10rem;
+}
+  
+.abstract-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15), -4px -4px 10px rgba(255, 255, 255, 0.5);
+  background-color: var(--beige);
+  color: var(--black-matte);
+}
+  
+.abstract-button:active {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.3);
+  transform: translateY(2px);
+  color: var(--beige);
+}
+  
+  /* Rotierender Kreis-Container mit Neumorphism und Fusion der Kreise */
+.circle-container {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotate-circle 10s linear infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+  
+.circle {
+  width: 25px;
+  height: 25px;
+  background-color: var(--black-matte);
+  border-radius: 50%;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15), -3px -3px 6px rgba(255, 255, 255, 0.6);
+  position: absolute;
+  transition: background-color 0.3s ease, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+  
+.circle-container:hover .circle {
+  transform: scale(2.5); /* Kreise werden etwas größer */
+}
+  
+.circle-container.clicked .circle {
+  width: 60px;
+  height: 60px;
+  opacity: 1;
+  transform: scale(1) translate(0); /* Fusioniere die 6 Kreise zu einem großen */
+}
+  
+  /* Positionierung der 6 Kreise im rotierenden Container */
+.circle:nth-child(1) { transform: rotate(0deg) translate(30px); }
+.circle:nth-child(2) { transform: rotate(60deg) translate(30px); }
+.circle:nth-child(3) { transform: rotate(120deg) translate(30px); }
+.circle:nth-child(4) { transform: rotate(180deg) translate(30px); }
+.circle:nth-child(5) { transform: rotate(240deg) translate(30px); }
+.circle:nth-child(6) { transform: rotate(300deg) translate(30px); }
+  
+@keyframes rotate-circle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  
+  /* Dot Menü mit Neumorphism */
+.dot-menu {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+  
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: var(--black-matte);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s ease;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15), -3px -3px 6px rgba(255, 255, 255, 0.6);
+}
+  
+.dot:hover {
+  transform: scale(1.5);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(255, 255, 255, 0.4);
+}
+  
+.MyName {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-45%);
+  right: -18rem;
+  text-align: center;
+}
+  
+h1 {
+  transform: rotate(90deg); 
+  font-size: 7.5rem;
+  letter-spacing: 16px;
+  margin: 0; 
+  padding: 0;
+}
+
+.slide-in-box {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Ausblenden außerhalb des Bildschirms */
+  width: 600px;
+  height: 100vh;
+  background-color: var(--gold-matte); /* Schwarze Box */
+  color: var(--black-matte); /* Weiße Textfarbe */
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: left 0.5s ease; /* Übergangseffekt beim Einblenden */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Container für den Text (innerhalb der Box) */
+.slide-in-content {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.5; /* Zeilenabstand erhöhen für bessere Lesbarkeit */
+  margin-top: 20px; /* Weniger Abstand nach oben */
+  text-align: left; /* Text links ausrichten */
+  letter-spacing: 1.2px;
+  overflow-y: auto; /* Vertikales Scrollen aktivieren */
+  overflow-x: hidden; /* Horizontales Scrollen deaktivieren */
+  max-height: calc(100vh - 60px); /* Höhe der Box minus Header und Buttons */
+  padding-right: 10px; /* Platz für Scrollbar */
+}
+
+/* Scrollbar-Styling für den vertikalen Scrollbereich */
+.slide-in-content::-webkit-scrollbar {
+  width: 12px; /* Breite der Scrollbar */
+  background: var(--black-matte); /* Hintergrundfarbe der Scrollbar */
+  border-radius: 5px;
+}
+
+.slide-in-content::-webkit-scrollbar-thumb {
+  background: var(--gold-matte); /* Farbe des Scrollbars */
+  border-radius: 5px; /* Runde Ecken */
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 8px rgba(188, 174, 128, 0.689); /* Neumorphismus-Effekt */
+  cursor: pointer;
+}
+
+.slide-in-content::-webkit-scrollbar-track {
+  background: none; /* Entfernt Hintergrund des Scrollbar-Tracks */
+  margin: 0 10px; /* Abstand zur Scrollbar */
+}
+
+.slide-in-content:hover::-webkit-scrollbar-thumb {
+  background: var(--gold-matte); /* Beibehaltung der Farbe beim Hover */
+  box-shadow: 
+    inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+    inset -5px -5px 10px rgba(188, 174, 128, 0.689); /* Stärkere Schatteneffekte */
+  transform: scale(1.1); /* Vergrößerung bei Hover */
+}
+
+h2 {
+  font-size: 1.8rem; /* Größere Schrift für die Überschrift */
+  margin-bottom: 15px; /* Abstand nach unten */
+  color: var(--beige-matte);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.4rem; /* Etwas größere Schrift für kleinere Überschriften */
+  margin-top: 20px; /* Abstand nach oben */
+  margin-bottom: 10px; /* Abstand nach unten */
+  color: var(--beige-matte);
+  font-weight: bold;
+}
+
+strong {
+  color: var(--beige-matte);
+}
+
+ul li {
+  margin-bottom: 10px; /* Abstand zwischen den Listenelementen */
+  font-weight: bold;
+}
+
+/* Styling für Links */
+a {
+  color: var(--black-matte); /* Linkfarbe */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* Unterstreicht den Link beim Hover */
+}
+
+/* Schließen-Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--black-matte);
+  color: var(--beige);
+  border: none;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2), -2px -2px 8px rgba(255, 255, 255, 0.3);
+}
+
+.close-button:hover {
+  background-color: var(--gold-matte);
+  color: var(--black-matte);
+}
+
+.MyFoto {
+  width: 150px;
+  height: auto;
+  overflow: hidden;
+  margin-right: 160px;
+  border-width: 10px; /* Breite des Rahmens */
+  border-style: solid;
+  border-image: linear-gradient(to bottom, var(--black-matte), var(--gold-matte)) 1;
+}
+
+.MyFoto img {
+  width: 100%; 
+  height: auto; 
+  transform: scale(2);
+  margin-left: 10px;
+}
+
+.WhoIam {
+  width: 80%; /* Dynamische Breite für bessere Flexibilität */
+  max-width: 200px; /* Begrenzte maximale Breite */
+  text-align: center; /* Textzentrierung */
+  background-color: var(--gold-matte);
+  color: var(--black-matte);
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 15px;
+  border-radius: 20px;
+  margin-right: 156px;
+}
+
+@media (max-width: 768px) {
+  .glass-box {
+    width: 90%; 
+    height: auto;
+    margin-left: 0; /* Keine zusätzliche Verschiebung */
+  }
+
+  .abstract-button {
+    width: 80%; 
+    margin-left: 0;
+  }
+
+  .circle-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .circle {
+    width: 15px;
+    height: 15px;
+  }
+
+  .slide-in-box {
+    width: 100%; /* Box nimmt die volle Breite des Bildschirms ein */
+  }
+
+  .MyFoto {
+    width: 120px; /* Bildgröße auf kleineren Bildschirmen anpassen */
+    margin-right: 0;
+  }
+
+  .WhoIam {
+    width: 90%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .MyName {
+    right: 0;
+  }
+
+  h1 {
+    font-size: 5rem; /* Schriftgröße anpassen */
+  }
+}
+
+/* Für sehr kleine Bildschirme */
+@media (max-width: 480px) {
+  .glass-box {
+    width: 95%;
+  }
+
+  .abstract-button {
+    width: 75%;
+  }
+
+  .circle-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .circle {
+    width: 12px;
+    height: 12px;
+  }
+
+  h1 {
+    font-size: 3.5rem; /* Schriftgröße für kleine Geräte */
+  }
+
+  .MyFoto {
+    width: 100px; /* Noch kleineres Bild */
+  }
+}

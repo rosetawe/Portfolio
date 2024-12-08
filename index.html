@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="CSS/page1.css">
+<body>
+  <div class="container">
+    <div class="language-selector">
+      <button id="languageButton" data-content="Language">Sprache</button>
+      <div id="languageDropdown" class="dropdown-content">
+        <button class="language-option" data-language="de">Deutsch</button>
+        <button class="language-option" data-language="es">Español</button>
+        <button class="language-option" data-language="en">English</button>
+      </div>
+    </div>
+    <!-- Glass Box -->
+    <div class="glass-box">
+      <div class="abstract-button" data-content="Resume" onclick="showSlideInBox('Resume')">LEBENSLAUF</div>
+      <div class="abstract-button" data-content="Skills" onclick="showSlideInBox('Skills')">KOMPETENZEN</div>
+      <div class="abstract-button" data-content="Contact" onclick="showSlideInBox('Contact')">KONTAKT</div>
+
+      <div class="MyName">
+        <h1>ROSARIO</h1>
+      </div>
+
+      <div class="MyFoto">
+        <img src="Images&Videos/MyFoto.jpeg">
+      </div>
+
+      <div class="WhoIam" id="description">
+        <p>Ich bin Game- und Multimedia-Entwickler mit Fokus auf interaktive Anwendungen und Spiele, 
+           die funktional und ästhetisch ansprechend sind.</p>
+      </div>
+    </div>
+
+    <!-- Rotierender Kreis -->
+    <div class="circle-container" onclick="changeCircleColor()">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+
+    <!-- Dot Menü -->
+    <div class="dot-menu">
+      <div class="dot" onclick="changeBackground(0)"></div>
+      <div class="dot" onclick="changeBackground(1)"></div>
+      <div class="dot" onclick="changeBackground(2)"></div>
+    </div>
+
+    <!-- Schwarze Slide-In Box -->
+    <div id="slide-in-box" class="slide-in-box">
+      <button class="close-button" onclick="hideSlideInBox()">✕</button>
+      <div id="slide-in-content" class="slide-in-content"></div>
+    </div>
+  </div>
+  <script src="JS/Management.js"></script>
+  <script src="JS/language1.js"></script>
+</body>
+</html>
