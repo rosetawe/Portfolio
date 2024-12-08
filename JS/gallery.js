@@ -401,7 +401,6 @@ const data = {
   ]
 };
 
-// HTML-Elemente
 const carousel = document.getElementById("carousel");
 const categories = document.querySelectorAll(".category");
 const popup = document.getElementById("popup");
@@ -410,9 +409,8 @@ const popupVideo = document.getElementById("popup-video");
 const popupDescription = document.getElementById("popup-description");
 const popupLanguage = document.getElementById("popup-language");
 
-// Funktion zum Laden der Items in den Karussell
 function loadCategory(category) {
-  carousel.innerHTML = ""; // Alte Inhalte entfernen
+  carousel.innerHTML = "";
 
   data[category].forEach(item => {
     const div = document.createElement("div");
@@ -429,17 +427,14 @@ function loadCategory(category) {
       div.appendChild(video);
     }
 
-    // Event Listener zum Öffnen des Popups
     div.addEventListener("click", () => openPopup(item));
     carousel.appendChild(div);
   });
 }
 
-// Funktion zum Öffnen des Popups
 function openPopup(item) {
   popup.classList.add("active");
 
-  // Bild oder Video anzeigen
   if (item.type === "image") {
     popupImage.style.display = "block";
     popupImage.src = item.src;
@@ -450,65 +445,52 @@ function openPopup(item) {
     popupImage.style.display = "none";
   }
 
-  // Beschreibung und Sprache anzeigen
   popupDescription.textContent = item.description[currentLanguage];
 
-  // Programmiersprachen als Liste anzeigen
   const languagesList = item.language.split(",").map(language => `<li>${language.trim()}</li>`).join("");
   popupLanguage.innerHTML = `${languages[currentLanguage].popup.madeWith}: <ul>${languagesList}</ul>`;
 }
 
-// Popup schließen
 function closePopup() {
   popup.classList.remove("active");
   popupImage.src = "";
   popupVideo.src = "";
 }
 
-// Kategorien-Buttons
 categories.forEach(button => {
   button.addEventListener("click", () => loadCategory(button.dataset.categorie));
 });
 
-// Standard-Kategorie laden
 loadCategory("schulprojekte");
 
 function changeCircleColor() {
   const circles = document.querySelectorAll('.circle');
   circles.forEach(circle => {
-    circle.style.backgroundColor = 'var(--black-matte)'; // Grüne matte Farbe für die Kreise
+    circle.style.backgroundColor = 'var(--black-matte)';
   });
 
-  // Stoppt kurz die Animation und startet sie erneut für einen sanften Übergang
   const circleContainer = document.querySelector('.circle-container');
   setTimeout(() => {
     circles.forEach(circle => {
       circle.style.backgroundColor = 'var(--black-matte)';
     })
     circleContainer.style.animationPlayState = 'running';
-  }, 2000); // kurze Pause von 200ms
+  }, 2000);
 }
 
-// Funktion zur Navigation mit Transition
 function goToPage1(url) {
-  // Start der Übergangsanimation (transition-out)
   document.body.classList.add('transition-out');
 
-  // Timer für die Übergangsanimation
   setTimeout(() => {
-    // Sobald die transition-out abgeschlossen ist, navigiere zur neuen Seite
     window.location.href = url;
     
-    // Entferne transition-out und füge transition-in hinzu
-    // Wir setzen die transition-in erst nach der Verzögerung
     document.body.classList.remove('transition-out');
     document.body.classList.add('transition-in');
-  }, 1500); // Verzögerung passend zur Dauer der "transition-out" Animation
+  }, 1500);
 }
 
-// Event Listener für den Kreis
 const circleContainer = document.querySelector('.circle-container');
 circleContainer.addEventListener('click', () => {
-  changeCircleColor(); // Farbe ändern
-  goToPage1('index.html'); // Zur Seite navigieren
+  changeCircleColor();
+  goToPage1('index.html');
 });

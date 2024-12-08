@@ -1,10 +1,8 @@
-// Dropdown öffnen/schließen
 document.getElementById('languageButton').addEventListener('click', () => {
   const dropdown = document.getElementById('languageDropdown');
   dropdown.classList.toggle('show');
 });
 
-// Übersetzungen für jede Sprache
 const languages = {
   de: {
     Language: "Sprache",
@@ -213,20 +211,16 @@ const languages = {
   }
 };
 
-// Standard-Sprache setzen
 let currentLanguage = localStorage.getItem('language') || 'de';
 
 function updateLanguage(lang) {
   currentLanguage = lang;
   localStorage.setItem('language', lang);
 
-  // Aktualisierung des Sprachbuttons
   document.getElementById("languageButton").textContent = languages[lang].Language;
 
-  // Aktualisierung der Hauptbeschreibung
   document.getElementById("description").textContent = languages[lang].description;
 
-  // Aktualisierung der Abstract-Buttons
   document.querySelectorAll(".abstract-button").forEach(button => {
     const contentKey = button.getAttribute("data-content");
     if (contentKey && languages[lang].buttons[contentKey]) {
@@ -235,7 +229,6 @@ function updateLanguage(lang) {
   });
 }
 
-// Sprachumschaltung
 document.querySelectorAll(".language-option").forEach(button => {
   button.addEventListener("click", () => {
     const selectedLanguage = button.getAttribute("data-language");
@@ -243,5 +236,4 @@ document.querySelectorAll(".language-option").forEach(button => {
   });
 });
 
-// Standard-Sprache laden
 updateLanguage(currentLanguage);

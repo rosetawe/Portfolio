@@ -1,4 +1,3 @@
-// Sprache in localStorage speichern
 document.getElementById('languageButton').addEventListener('click', () => {
   const dropdown = document.getElementById('languageDropdown');
   dropdown.classList.toggle('show');
@@ -49,19 +48,14 @@ const languages = {
   }
 };
 
-// Standard-Sprache laden
 let currentLanguage = localStorage.getItem('language') || 'de';
 
-// Funktion zum Aktualisieren der Seite basierend auf der Sprache
 function updateLanguage(lang) {
   currentLanguage = lang;
-  localStorage.setItem('language', lang); // Sprache speichern
-
-  // Sprachbutton aktualisieren
+  localStorage.setItem('language', lang);
   document.getElementById("languageButton").textContent = languages[lang].Language;
   document.querySelector(".page-title h1").textContent = languages[lang].pageTitle;
 
-  // Buttons der Kategorien aktualisieren
   document.querySelectorAll(".category").forEach(button => {
     const contentKey = button.getAttribute("data-categorie");
     if (contentKey && languages[lang].buttons[contentKey]) {
@@ -69,11 +63,9 @@ function updateLanguage(lang) {
     }
   });
 
-  // Popup-Texte aktualisieren (dynamisch bei Anzeige)
   document.getElementById("popup-title").textContent = languages[lang].popup.title;
 }
 
-// Sprachumschaltung
 document.querySelectorAll(".language-option").forEach(button => {
   button.addEventListener("click", () => {
     const selectedLanguage = button.getAttribute("data-language");
@@ -81,5 +73,4 @@ document.querySelectorAll(".language-option").forEach(button => {
   });
 });
 
-// Standard-Sprache laden
 updateLanguage(currentLanguage);
